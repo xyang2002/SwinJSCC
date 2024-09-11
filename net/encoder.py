@@ -275,6 +275,7 @@ class SwinJSCC_Encoder(nn.Module):
         B, C, H, W = x.size()
         device = x.get_device()
         x = self.patch_embed(x)
+        # swin transformer part to extract features
         for i_layer, layer in enumerate(self.layers):
             x = layer(x)
             print(x.mean())
